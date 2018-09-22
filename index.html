@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    canvas {
+      background: #eee;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id='myCanvas' width="480" height="320"></canvas>
+
+</body>
+
+<script>
+  var canvas = document.getElementById('myCanvas')
+  var ctx = canvas.getContext('2d')
+
+  var x = 319
+  var y = 166
+
+  var dx = 5
+  var dy = -5
+
+  function draw() {
+    ctx.beginPath()
+    ctx.arc(x, y, 10, 0, Math.PI * 2);
+    ctx.fillStyle = '#0095dd'
+    ctx.fill()
+    ctx.closePath()
+
+    if (x >= canvas.width || x <= 0) {
+      dx *= -1
+    }
+
+    if (y <= 0 || y >= canvas.height) {
+      dy *= -1
+    }
+
+    x += dx
+    y += dy
+
+  }
+
+  setInterval(draw, 10)
+
+
+
+</script>
+
+
+</html>
